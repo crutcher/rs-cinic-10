@@ -2,7 +2,7 @@
 name = "rs-cinic-10-burn"
 keywords = ["burn", "tensor"]
 categories = ["computer-vision"]
-description = "Fluent Contracts for the Burn library"
+description = "Burn bindings for rs-cinic-10"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

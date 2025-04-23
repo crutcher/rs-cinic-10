@@ -2,7 +2,7 @@
 name = "rs-cinic-10-index"
 keywords = ["data"]
 categories = ["computer-vision"]
-description = "Fluent Contracts for the Burn library"
+description = "Data index for CINIC-10 dataset"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
