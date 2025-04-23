@@ -1,0 +1,13 @@
+[package]
+name = "rs-cinic-10-burn"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+rs-cinic-10-index = { path = "../rs-cinic-10-index" }
+burn = { workspace = true }
+anyhow = { workspace = true }
+
+[dev-dependencies]
+burn = { workspace = true, features = ["wgpu"] }
+

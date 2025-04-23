@@ -1,0 +1,16 @@
+[package]
+name = "rs-cinic-10-index"
+version.workspace = true
+edition.workspace = true
+
+
+[dependencies]
+csv = { workspace = true }
+serde = { workspace = true }
+image = { workspace = true }
+strum = {  workspace = true }
+strum_macros = {  workspace = true }
+anyhow = { workspace = true }
+
+[dev-dependencies]
+indoc = { workspace = true }
