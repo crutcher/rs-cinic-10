@@ -1,3 +1,8 @@
 [toolchain]
-components = [ "rustfmt", "clippy", "cargo-make" ]
+components = [
+    "cargo-make",
+    "cargo-workspaces",
+    "clippy",
+    "rustfmt",
+]
 

@@ -1,10 +1,15 @@
 [package]
 name = "rs-cinic-10-burn"
+keywords = ["burn", "tensor"]
+categories = ["computer-vision"]
+description = "Fluent Contracts for the Burn library"
 version.workspace = true
 edition.workspace = true
+license.workspace = true
+repository.workspace = true
 
 [dependencies]
-rs-cinic-10-index = { path = "../rs-cinic-10-index" }
+rs-cinic-10-index = { workspace = true }
 burn = { workspace = true }
 anyhow = { workspace = true }
 
