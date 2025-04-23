@@ -86,7 +86,7 @@ impl WithTensorBatches for DatasetIndex {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use burn::backend::Wgpu;
+    use burn::backend::NdArray;
 
     use rs_cinic_10_index::index::{CHANNELS, HEIGHT, ObjectClass, SAMPLES_PER_CLASS, WIDTH};
     use rs_cinic_10_index::{Cinic10Index, default_data_path_or_panic};
@@ -97,7 +97,7 @@ mod tests {
         let path = root_path.join("train/airplane/cifar10-train-3318.png");
 
         let device = Default::default();
-        let tensor: Tensor<Wgpu, 3> = load_hwc_u8_tensor_image(&path, &device)?;
+        let tensor: Tensor<NdArray, 3> = load_hwc_u8_tensor_image(&path, &device)?;
 
         assert_eq!(tensor.dims(), [32, 32, 3]);
 
@@ -113,7 +113,7 @@ mod tests {
         ];
 
         let device = Default::default();
-        let tensor: Tensor<Wgpu, 4> = load_bhwc_u8_tensor_image_batch(&paths, &device)?;
+        let tensor: Tensor<NdArray, 4> = load_bhwc_u8_tensor_image_batch(&paths, &device)?;
 
         assert_eq!(tensor.dims(), [2, 32, 32, 3]);
 
@@ -126,7 +126,7 @@ mod tests {
         let indices = (0..3).map(|i| i * SAMPLES_PER_CLASS).collect::<Vec<_>>();
 
         let device = Default::default();
-        let tensor: Tensor<Wgpu, 4> = cinic.test.load_tensor_batch(&indices, &device)?;
+        let tensor: Tensor<NdArray, 4> = cinic.test.load_tensor_batch(&indices, &device)?;
         let classes = cinic.test.indices_to_classes(&indices);
 
         assert_eq!(tensor.dims(), [3, HEIGHT, WIDTH, CHANNELS]);
