@@ -4,22 +4,22 @@ members = [ "crates/*" ]
 
 [workspace.package]
 edition = "2024"
-version = "0.1.3"
+version = "0.1.4"
 repository = "https://github.com/crutcher/rs-cinic-10"
 license = "MIT"
 
 
 [workspace.dependencies]
-burn = { version = "~0.17.0" }
-serde = { version = "~1.0", features = ["derive"] }
+burn = { version = "^0.17.0" }
+serde = { version = "^1.0", features = ["derive"] }
 
-image = { version = "~0.25.6" }
+image = { version = "^0.25.6" }
 
-strum = "~0.27.1"
-strum_macros = "~0.27.1"
+strum = "^0.27.1"
+strum_macros = "^0.27.1"
 
-csv = { version = "~1.3.1"  }
+csv = { version = "^1.3.1"  }
 
-indoc = { version = "~2.0.6"}
-anyhow = { version = "~1.0.98" }
+indoc = { version = "^2.0.6"}
+anyhow = { version = "^1.0.98" }
 

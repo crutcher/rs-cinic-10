@@ -9,7 +9,7 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rs-cinic-10-index = { path = "../rs-cinic-10-index", version = "0.1.2" }
+rs-cinic-10-index = { path = "../rs-cinic-10-index", version = "0.1.4" }
 burn = { workspace = true }
 anyhow = { workspace = true }
 
