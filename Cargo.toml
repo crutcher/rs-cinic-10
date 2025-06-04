@@ -4,14 +4,14 @@ members = [ "crates/*" ]
 
 [workspace.package]
 edition = "2024"
-version = "0.1.5"
+version = "0.1.6"
 repository = "https://github.com/crutcher/rs-cinic-10"
 license = "MIT"
-
 
 [workspace.dependencies]
 burn = { version = "^0.17.0" }
 serde = { version = "^1.0", features = ["derive"] }
+enum-ordinalize = { version = "^4.3.0" }
 
 image = { version = "^0.25.6" }
 

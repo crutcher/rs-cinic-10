@@ -15,6 +15,7 @@ image = { workspace = true }
 strum = {  workspace = true }
 strum_macros = {  workspace = true }
 anyhow = { workspace = true }
+enum-ordinalize = { workspace = true }
 
 [dev-dependencies]
 indoc = { workspace = true }

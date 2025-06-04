@@ -1,6 +1,7 @@
 use crate::default_data_path_or_panic;
 use crate::images::{RgbImageBatch, load_bhwc_rgbimagebatch};
 use anyhow::Result;
+use enum_ordinalize::Ordinalize;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs::File;
@@ -47,6 +48,7 @@ pub enum DataSet {
     Hash,
     Serialize,
     Deserialize,
+    Ordinalize,
     strum_macros::Display,
     strum_macros::EnumIter,
     strum_macros::EnumCount,
