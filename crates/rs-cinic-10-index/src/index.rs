@@ -248,9 +248,15 @@ where
 }
 
 #[derive(Debug, Clone)]
+pub struct DatasetItem {
+    pub class: ObjectClass,
+    pub path: PathBuf,
+}
+
+#[derive(Debug, Clone)]
 pub struct DatasetIndex {
-    ds_path: PathBuf,
-    items: Vec<(ObjectClass, PathBuf)>,
+    pub ds_path: PathBuf,
+    pub items: Vec<DatasetItem>,
 }
 
 impl DatasetIndex {
@@ -260,7 +266,11 @@ impl DatasetIndex {
 
         for oc in ObjectClass::iter() {
             let oc_path = ds_path.join(oc.to_string());
-            items.extend(list_pngs_sorted(&oc_path)?.into_iter().map(|p| (oc, p)))
+            items.extend(
+                list_pngs_sorted(&oc_path)?
+                    .into_iter()
+                    .map(|p| DatasetItem { class: oc, path: p }),
+            )
         }
 
         let di = Self { ds_path, items };
@@ -269,8 +279,11 @@ impl DatasetIndex {
         Ok(di)
     }
 
-    pub fn ds_path(&self) -> &Path {
-        &self.ds_path
+    pub fn get(
+        &self,
+        index: usize,
+    ) -> Option<DatasetItem> {
+        self.items.get(index).cloned()
     }
 
     /// Get the size of the dataset.
@@ -279,7 +292,11 @@ impl DatasetIndex {
     }
 
     pub fn is_empty(&self) -> bool {
-        self.items.is_empty()
+        self.len() == 0
+    }
+
+    pub fn ds_path(&self) -> &Path {
+        &self.ds_path
     }
 
     /// Convert an item index to an object class.
@@ -287,7 +304,7 @@ impl DatasetIndex {
         &self,
         index: usize,
     ) -> ObjectClass {
-        self.items[index].0
+        self.items[index].class
     }
 
     /// Convert a slice of indices to a vector of object classes.
@@ -311,8 +328,8 @@ impl DatasetIndex {
         &self,
         index: usize,
     ) -> PathBuf {
-        let (oc, fname) = &self.items[index];
-        self.ds_path.join(oc.to_string()).join(fname)
+        let item = &self.items[index];
+        self.ds_path.join(item.class.to_string()).join(&item.path)
     }
 
     /// Convert a slice of indices to a vector of image paths.
