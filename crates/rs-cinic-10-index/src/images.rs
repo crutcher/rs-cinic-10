@@ -1,5 +1,5 @@
 use anyhow::Result;
-use image::{ColorType, RgbImage};
+use image::RgbImage;
 use std::path::Path;
 
 /// Loads an RGB image from the given path.
@@ -18,6 +18,7 @@ where
     let path = path.as_ref();
     let img = image::open(path)?;
 
+    /*
     let color_type = img.color();
     assert_eq!(
         color_type,
@@ -25,6 +26,7 @@ where
         "Image color type must be Rgb8, found: {:?}",
         color_type
     );
+     */
 
     Ok(img.to_rgb8())
 }
